@@ -123,7 +123,7 @@ app.post('/recommend', async (req, res) => {
   }
 });
 
-// ✅ Proper Render-compatible dynamic port
-app.listen(port, () => {
+// ✅ Render-compatible port binding
+app.listen(port, '0.0.0.0', () => {
   console.log(`✅ Server running on port ${port}`);
 });
