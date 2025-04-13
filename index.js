@@ -44,7 +44,7 @@ app.get('/callback', async (req, res) => {
       }
     });
     accessToken = response.data.access_token;
-    res.send("Spotify authentication successful. You can now return to the app.");
+    res.redirect('https://camerong13.sg-host.com');
   } catch (err) {
     console.error(err);
     res.status(500).send("Authentication failed");
