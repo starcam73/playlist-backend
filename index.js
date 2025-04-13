@@ -1,4 +1,3 @@
-// backend/index.js
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
@@ -51,7 +50,7 @@ app.get('/callback', async (req, res) => {
   }
 });
 
-// Step 3: Create a playlist with song search and add
+// Step 3: Create a playlist
 app.post('/create-playlist', async (req, res) => {
   const { userId, playlistName, songs } = req.body;
   try {
@@ -91,7 +90,7 @@ app.post('/create-playlist', async (req, res) => {
   }
 });
 
-// Step 4: Get AI-style recommendations using Spotify's Recommendation API
+// Step 4: Get AI-style recommendations
 app.post('/recommend', async (req, res) => {
   const { seed } = req.body;
   try {
@@ -124,4 +123,7 @@ app.post('/recommend', async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+// ✅ Proper Render-compatible dynamic port
+app.listen(port, () => {
+  console.log(`✅ Server running on port ${port}`);
+});
