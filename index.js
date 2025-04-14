@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-  origin: 'https://camerong13.sg-host.com'
+  origin: 'https://camerong14.sg-host.com'
 }));
 app.use(express.json());
 
@@ -43,7 +43,7 @@ app.get('/callback', async (req, res) => {
       }
     });
     accessToken = response.data.access_token;
-    res.redirect('https://camerong13.sg-host.com');
+    res.redirect('https://camerong14.sg-host.com');
   } catch (err) {
     console.error(err);
     res.status(500).send("Authentication failed");
