@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-  origin: 'https://camerong14.sg-host.com'
+  origin: 'https://camerong15.sg-host.com' // ✅ updated to your new frontend domain
 }));
 app.use(express.json());
 
@@ -43,14 +43,14 @@ app.get('/callback', async (req, res) => {
       }
     });
     accessToken = response.data.access_token;
-    res.redirect('https://camerong14.sg-host.com');
+    res.redirect('https://camerong15.sg-host.com'); // ✅ updated to redirect back to new site
   } catch (err) {
     console.error(err);
     res.status(500).send("Authentication failed");
   }
 });
 
-// Step 3: Create a playlist
+// Create a playlist
 app.post('/create-playlist', async (req, res) => {
   const { userId, playlistName, songs } = req.body;
   try {
@@ -90,7 +90,7 @@ app.post('/create-playlist', async (req, res) => {
   }
 });
 
-// Step 4: Get AI-style recommendations
+// Get AI-style recommendations
 app.post('/recommend', async (req, res) => {
   const { seed } = req.body;
   try {
@@ -123,7 +123,7 @@ app.post('/recommend', async (req, res) => {
   }
 });
 
-// ✅ Render-compatible port binding
+// Render-compatible dynamic port
 app.listen(port, '0.0.0.0', () => {
   console.log(`✅ Server running on port ${port}`);
 });
